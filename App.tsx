@@ -38,33 +38,41 @@ export default function App() {
     return null;
   };
 
-  const normalizeProductTitles = async (products: Product[]) => {
+  const normalizeAndColorizeProducts = async (products: Product[]) => {
     setNormalizing(true);
     try {
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       
-      // Filtramos apenas os iPhones para normalização para otimizar a chamada
-      const productsToNormalize = products.filter(p => p.anuncio.toLowerCase().includes('iphone'));
+      const productsToProcess = products.filter(p => p.anuncio.toLowerCase().includes('iphone'));
       
-      if (productsToNormalize.length === 0) {
+      if (productsToProcess.length === 0) {
         setNormalizing(false);
         return products;
       }
 
-      const titles = productsToNormalize.map(p => p.anuncio).join('\n');
+      const titles = productsToProcess.map(p => p.anuncio).join('\n');
 
-      const prompt = `Boa, agora sua função é NORMALIZAR títulos de anúncios de iPhone seguindo regras fixas.
-Não interprete intenções, não adicione informações, não remova informações fora das regras.
-Não altere capitalização além do necessário.
-Não explique o que fez. Retorne APENAS o texto final, um título por linha, na mesma ordem de entrada.
+      const prompt = `Sua função agora é DUPLA: Normalizar títulos e Identificar a COR HEX.
 
-REGRAS DE SAÍDA:
-1. O formato final deve ser: Apple iPhone <MODELO> <ARMAZENAMENTO>/<RAM opcional> <COR> <OBSERVAÇÃO opcional>
-2. Sempre manter: "Apple iPhone", Modelo (ex: 13, 17, 17 Pro), Armazenamento (ex: 128GB), RAM apenas se explícito no formato "storage/ram" ou "ramGB", Cor e Observações entre parênteses.
-3. Sempre REMOVER: Códigos de modelo (A2633, etc), termos técnicos (Tela, MP, Esim, Dual), tamanho de tela, câmeras.
-4. Se existir hífen "-" separando a cor, manter apenas a cor após o hífen.
-5. Se houver observações entre parênteses, preservá-las exatamente como estão.
-6. Não inventar RAM.
+REGRAS DE NORMALIZAÇÃO:
+1. Formato: Apple iPhone <MODELO> <ARMAZENAMENTO>/<RAM opcional> <COR> <OBSERVAÇÃO opcional>
+2. Manter: "Apple iPhone", Modelo, Armazenamento, RAM (se explícito), Cor e Observações entre parênteses.
+3. REMOVER: Códigos (A2633, etc), termos técnicos irrelevantes (Tela, MP, Esim), tamanho de tela.
+4. Se houver hífen "-" separando a cor, manter apenas a cor após o hífen.
+
+REGRAS DE IDENTIFICAÇÃO DE COR:
+Identifique a COR presente no título original e retorne o HEX correspondente baseado neste mapeamento:
+- Midnight, black, preto → #2B2B2B
+- Starlight, white, branco, silver, prata → #F5F5F5
+- Azul, blue, ultramarine, ultramarino, deep blue, azul nevoa, azul intenso → #4D97FF
+- Rosa, pink, lavander, lavanda → #FF8EF3
+- Green, verde, teal, salvia, sage → #0BD867
+- Yellow → #FFDC5B
+- Cosmic Orange, laranja cosmico, laranja → #FFA84F
+- Outros/Não identificado → #E0E0E0
+
+Para cada entrada, retorne exatamente: Título Normalizado | #HEX
+Retorne uma linha por produto, na mesma ordem de entrada. Não explique nada.
 
 ENTRADA:
 ${titles}`;
@@ -74,14 +82,22 @@ ${titles}`;
         contents: prompt,
       });
 
-      const normalizedTitles = response.text?.trim().split('\n') || [];
+      const lines = response.text?.trim().split('\n') || [];
       
-      let normalizedIndex = 0;
+      let processedIndex = 0;
       const updatedProducts = products.map(p => {
-        if (p.anuncio.toLowerCase().includes('iphone') && normalizedTitles[normalizedIndex]) {
-          const newTitle = normalizedTitles[normalizedIndex].trim();
-          normalizedIndex++;
-          return { ...p, anuncio: newTitle };
+        if (p.anuncio.toLowerCase().includes('iphone') && lines[processedIndex]) {
+          const line = lines[processedIndex].trim();
+          processedIndex++;
+          
+          const parts = line.split('|');
+          if (parts.length >= 2) {
+            return { 
+              ...p, 
+              anuncio: parts[0].trim(), 
+              corHex: parts[1].trim() 
+            };
+          }
         }
         return p;
       });
@@ -89,7 +105,7 @@ ${titles}`;
       setNormalizing(false);
       return updatedProducts;
     } catch (err) {
-      console.error("Erro na normalização:", err);
+      console.error("Erro no processamento IA:", err);
       setNormalizing(false);
       return products;
     }
@@ -119,11 +135,10 @@ ${titles}`;
         }
 
         if (json && json.produtos) {
-          setData(json); // Define dados iniciais para não travar a UI
+          setData(json);
           
-          // Normaliza os títulos de forma assíncrona
-          const normalizedProducts = await normalizeProductTitles(json.produtos);
-          setData({ ...json, produtos: normalizedProducts });
+          const processedProducts = await normalizeAndColorizeProducts(json.produtos);
+          setData({ ...json, produtos: processedProducts });
           setError(null);
           setLoading(false);
           return;
@@ -185,7 +200,7 @@ ${titles}`;
             {normalizing && (
               <span className="flex items-center gap-1 text-indigo-500 font-bold animate-pulse">
                 <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span>
-                IA NORMALIZANDO...
+                IA PROCESSANDO...
               </span>
             )}
           </div>

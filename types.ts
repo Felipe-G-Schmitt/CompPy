@@ -5,6 +5,7 @@ export interface Product {
   valorDolar: number;
   precoCusto: number;
   precoVenda: number;
+  corHex?: string;
 }
 
 export interface ApiResponse {
