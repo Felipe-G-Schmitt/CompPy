@@ -12,6 +12,7 @@ export default function App() {
   const [data, setData] = useState<ApiResponse | null>(null);
   const [realtimeQuote, setRealtimeQuote] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
+  const [normalizing, setNormalizing] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedStore, setSelectedStore] = useState<string>('Todas');
@@ -29,83 +30,110 @@ export default function App() {
       if (match) {
         const val = parseFloat(match[0].replace(',', '.'));
         setRealtimeQuote(val);
-        console.log('%c[CAMBIO] Gemini:', 'color: #4f46e5; font-weight: bold', val);
         return val;
       }
     } catch (err) {
-      console.error("[ERRO] Gemini Falhou:", err);
+      console.error("Gemini Falhou:", err);
     }
     return null;
   };
 
-  const processResponse = (rawJson: any, source: string) => {
-    console.log(`%c[API] Resposta de ${source}:`, 'color: #10b981; font-weight: bold', rawJson);
-    
-    if (rawJson && rawJson.produtos && Array.isArray(rawJson.produtos)) {
-      if (rawJson.produtos.length > 0) {
-        const first = rawJson.produtos[0];
-        console.log('%c[VALIDAÇÃO] Campos detectados no primeiro produto:', 'color: #f59e0b; font-weight: bold', {
-          anuncio: first.anuncio,
-          loja: first.loja,
-          valorDolar: first.valorDolar,
-          precoCusto: first.precoCusto,
-          precoVenda: first.precoVenda
-        });
+  const normalizeProductTitles = async (products: Product[]) => {
+    setNormalizing(true);
+    try {
+      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+      
+      // Filtramos apenas os iPhones para normalização para otimizar a chamada
+      const productsToNormalize = products.filter(p => p.anuncio.toLowerCase().includes('iphone'));
+      
+      if (productsToNormalize.length === 0) {
+        setNormalizing(false);
+        return products;
       }
-      setData(rawJson);
-      setError(null);
-      return true;
+
+      const titles = productsToNormalize.map(p => p.anuncio).join('\n');
+
+      const prompt = `Boa, agora sua função é NORMALIZAR títulos de anúncios de iPhone seguindo regras fixas.
+Não interprete intenções, não adicione informações, não remova informações fora das regras.
+Não altere capitalização além do necessário.
+Não explique o que fez. Retorne APENAS o texto final, um título por linha, na mesma ordem de entrada.
+
+REGRAS DE SAÍDA:
+1. O formato final deve ser: Apple iPhone <MODELO> <ARMAZENAMENTO>/<RAM opcional> <COR> <OBSERVAÇÃO opcional>
+2. Sempre manter: "Apple iPhone", Modelo (ex: 13, 17, 17 Pro), Armazenamento (ex: 128GB), RAM apenas se explícito no formato "storage/ram" ou "ramGB", Cor e Observações entre parênteses.
+3. Sempre REMOVER: Códigos de modelo (A2633, etc), termos técnicos (Tela, MP, Esim, Dual), tamanho de tela, câmeras.
+4. Se existir hífen "-" separando a cor, manter apenas a cor após o hífen.
+5. Se houver observações entre parênteses, preservá-las exatamente como estão.
+6. Não inventar RAM.
+
+ENTRADA:
+${titles}`;
+
+      const response = await ai.models.generateContent({
+        model: 'gemini-3-flash-preview',
+        contents: prompt,
+      });
+
+      const normalizedTitles = response.text?.trim().split('\n') || [];
+      
+      let normalizedIndex = 0;
+      const updatedProducts = products.map(p => {
+        if (p.anuncio.toLowerCase().includes('iphone') && normalizedTitles[normalizedIndex]) {
+          const newTitle = normalizedTitles[normalizedIndex].trim();
+          normalizedIndex++;
+          return { ...p, anuncio: newTitle };
+        }
+        return p;
+      });
+
+      setNormalizing(false);
+      return updatedProducts;
+    } catch (err) {
+      console.error("Erro na normalização:", err);
+      setNormalizing(false);
+      return products;
     }
-    console.warn(`%c[AVISO] Dados de ${source} não possuem o formato esperado.`, 'color: #f59e0b');
-    return false;
   };
 
   const fetchData = async () => {
     setLoading(true);
     const apiUrl = 'https://comppyrender.onrender.com/api/precos';
     
-    const strategies = [
-      {
-        name: 'Direto',
-        exec: async () => {
-          const res = await fetch(apiUrl);
-          if (!res.ok) throw new Error(`Status ${res.status}`);
-          return await res.json();
-        }
-      },
-      {
-        name: 'AllOrigins Proxy',
-        exec: async () => {
-          const res = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(apiUrl)}&t=${Date.now()}`);
-          if (!res.ok) throw new Error(`Status ${res.status}`);
-          const json = await res.json();
-          return JSON.parse(json.contents);
-        }
-      },
-      {
-        name: 'CorsProxy.io',
-        exec: async () => {
-          const res = await fetch(`https://corsproxy.io/?${encodeURIComponent(apiUrl)}`);
-          if (!res.ok) throw new Error(`Status ${res.status}`);
-          return await res.json();
-        }
-      }
+    const proxies = [
+      apiUrl,
+      `https://api.allorigins.win/get?url=${encodeURIComponent(apiUrl)}&t=${Date.now()}`,
+      `https://corsproxy.io/?${encodeURIComponent(apiUrl)}`
     ];
 
-    for (const strategy of strategies) {
+    for (const url of proxies) {
       try {
-        console.log(`%c[FETCH] Tentando via ${strategy.name}...`, 'color: #0ea5e9');
-        const result = await strategy.exec();
-        if (processResponse(result, strategy.name)) {
+        const res = await fetch(url);
+        if (!res.ok) continue;
+        
+        let json;
+        if (url.includes('allorigins')) {
+          const proxyRes = await res.json();
+          json = JSON.parse(proxyRes.contents);
+        } else {
+          json = await res.json();
+        }
+
+        if (json && json.produtos) {
+          setData(json); // Define dados iniciais para não travar a UI
+          
+          // Normaliza os títulos de forma assíncrona
+          const normalizedProducts = await normalizeProductTitles(json.produtos);
+          setData({ ...json, produtos: normalizedProducts });
+          setError(null);
           setLoading(false);
           return;
         }
-      } catch (err: any) {
-        console.warn(`%c[FALHA] ${strategy.name}: ${err.message}`, 'color: #ef4444');
+      } catch (err) {
+        console.warn(`Falha no fetch: ${url}`);
       }
     }
 
-    setError('Não foi possível carregar os dados. O servidor da API pode estar offline.');
+    setError('Não foi possível sincronizar os preços agora.');
     setLoading(false);
   };
 
@@ -133,14 +161,14 @@ export default function App() {
   if (loading && !data) return <Loader />;
 
   return (
-    <div className="min-h-screen bg-slate-50 pb-12">
+    <div className="min-h-screen bg-slate-50 safe-bottom">
       <Header 
         cotacaoApi={data?.cotacaoDolar || 0} 
         cotacaoRealtime={realtimeQuote}
         lastUpdate={data?.atualizadoEm}
       />
       
-      <main className="px-4 pt-4 space-y-4 max-w-2xl mx-auto">
+      <main className="px-4 pt-5 pb-12 space-y-5 max-w-2xl mx-auto">
         <SearchBar value={searchQuery} onChange={setSearchQuery} />
         
         <StoreTabs 
@@ -149,30 +177,32 @@ export default function App() {
           onSelect={setSelectedStore} 
         />
 
-        <div className="flex justify-between items-center text-[10px] text-slate-400 mb-2 px-1">
-          <span className="font-bold uppercase tracking-wider">
-            {filteredProducts.length} ITENS LISTADOS
-          </span>
+        <div className="flex justify-between items-center text-[10px] text-slate-400 px-1">
+          <div className="flex items-center gap-2">
+            <span className="font-black uppercase tracking-widest bg-slate-200/50 px-2 py-1 rounded-md">
+              {filteredProducts.length} ITENS ENCONTRADOS
+            </span>
+            {normalizing && (
+              <span className="flex items-center gap-1 text-indigo-500 font-bold animate-pulse">
+                <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span>
+                IA NORMALIZANDO...
+              </span>
+            )}
+          </div>
           <button 
             onClick={() => { fetchData(); fetchRealtimeDollar(); }} 
-            className="flex items-center gap-1 text-indigo-600 font-black hover:opacity-70"
+            className="flex items-center gap-1 text-indigo-600 font-black uppercase tracking-tighter"
           >
-            SINCRONIZAR AGORA
+            Sincronizar
           </button>
         </div>
 
         {error ? (
-          <div className="bg-white border-2 border-slate-100 p-10 rounded-[40px] text-center shadow-xl shadow-slate-200/50">
-            <div className="w-20 h-20 bg-rose-50 text-rose-500 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-12.728 12.728m0-12.728l12.728 12.728" />
-              </svg>
-            </div>
-            <h3 className="text-slate-900 font-black text-lg mb-2">Erro de Conexão</h3>
-            <p className="text-slate-500 text-sm leading-relaxed mb-8 px-4">{error}</p>
+          <div className="bg-white border-2 border-slate-100 p-10 rounded-[40px] text-center shadow-sm">
+            <p className="text-slate-500 text-sm mb-8">{error}</p>
             <button 
               onClick={fetchData}
-              className="bg-indigo-600 text-white w-full py-4 rounded-2xl text-sm font-black shadow-lg shadow-indigo-200 active:scale-[0.97] transition-all"
+              className="bg-indigo-600 text-white w-full py-4 rounded-2xl font-black"
             >
               TENTAR NOVAMENTE
             </button>
@@ -183,8 +213,8 @@ export default function App() {
               <ProductCard key={`${product.loja}-${idx}`} product={product} />
             ))}
             {filteredProducts.length === 0 && (
-              <div className="py-20 text-center opacity-40">
-                <p className="font-bold text-slate-500">Nenhum produto encontrado</p>
+              <div className="py-20 text-center opacity-30">
+                <p className="font-black text-slate-400 uppercase text-[10px] tracking-[0.2em]">Nenhum produto</p>
               </div>
             )}
           </div>

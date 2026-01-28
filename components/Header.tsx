@@ -11,7 +11,7 @@ export const Header: React.FC<HeaderProps> = ({ cotacaoApi, cotacaoRealtime, las
   const formatBRL = (val: number) => new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL',
-    minimumFractionDigits: 3
+    minimumFractionDigits: 2
   }).format(val);
 
   const formatDateTime = (dateStr?: string) => {
@@ -21,7 +21,6 @@ export const Header: React.FC<HeaderProps> = ({ cotacaoApi, cotacaoRealtime, las
       return new Intl.DateTimeFormat('pt-BR', {
         day: '2-digit',
         month: '2-digit',
-        year: 'numeric',
         hour: '2-digit',
         minute: '2-digit',
       }).format(date);
@@ -33,12 +32,12 @@ export const Header: React.FC<HeaderProps> = ({ cotacaoApi, cotacaoRealtime, las
   const formattedUpdate = formatDateTime(lastUpdate);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-sm">
+    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-slate-200/60 shadow-sm pt-[env(safe-area-inset-top,0px)]">
       {/* Barra de Atualização Superior */}
       {formattedUpdate && (
-        <div className="bg-indigo-600/5 border-b border-indigo-600/10 py-1 text-center">
-          <p className="text-[9px] font-bold text-indigo-600 uppercase tracking-[0.1em]">
-            Base de dados atualizada em: <span className="font-black">{formattedUpdate}</span>
+        <div className="bg-indigo-600 py-1.5 px-4 text-center">
+          <p className="text-[10px] font-black text-white uppercase tracking-wider">
+            Última Atualização: <span className="opacity-90">{formattedUpdate}</span>
           </p>
         </div>
       )}
@@ -46,35 +45,32 @@ export const Header: React.FC<HeaderProps> = ({ cotacaoApi, cotacaoRealtime, las
       <div className="max-w-2xl mx-auto px-4 py-3">
         <div className="flex justify-between items-center mb-3">
           <div className="flex items-center gap-2">
-            <div className="w-9 h-9 bg-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-200">
-              <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+            <div className="w-8 h-8 bg-slate-900 rounded-xl flex items-center justify-center shadow-lg">
+              <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
               </svg>
             </div>
-            <span className="text-lg font-black tracking-tighter text-slate-900 uppercase">COMPPY</span>
+            <span className="text-base font-black tracking-tighter text-slate-900 uppercase">COMPPY</span>
           </div>
-          <div className="flex items-center gap-1.5 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-100 shadow-sm">
+          <div className="flex items-center gap-1.5 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
             <span className="relative flex h-1.5 w-1.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
             </span>
-            <span className="text-[9px] font-black text-emerald-700 uppercase tracking-widest">LIVE USD</span>
+            <span className="text-[10px] font-black text-emerald-600 uppercase">Live USD</span>
           </div>
         </div>
 
-        <div className="flex items-center justify-between gap-4">
-          <div className="flex-1">
-            <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">Câmbio Mercado (Gemini)</p>
-            <p className="text-2xl font-black text-slate-900 leading-none tracking-tight">
-              {cotacaoRealtime ? formatBRL(cotacaoRealtime) : (
-                <span className="text-slate-200 animate-pulse">---</span>
-              )}
+        <div className="grid grid-cols-2 gap-2">
+          <div className="bg-slate-50 p-2.5 rounded-2xl border border-slate-100 shadow-inner">
+            <p className="text-[8px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">Dólar Comercial</p>
+            <p className="text-base font-black text-slate-900">
+              {cotacaoRealtime ? formatBRL(cotacaoRealtime) : '---'}
             </p>
           </div>
-          <div className="h-8 w-[1px] bg-slate-100"></div>
-          <div className="text-right">
-            <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">Câmbio de Referência</p>
-            <p className="text-lg font-black text-indigo-600 leading-none">
+          <div className="bg-indigo-600/5 p-2.5 rounded-2xl border border-indigo-600/10">
+            <p className="text-[8px] font-bold text-indigo-400 uppercase tracking-widest mb-0.5">Dólar Referência</p>
+            <p className="text-base font-black text-indigo-600">
               {cotacaoApi > 0 ? formatBRL(cotacaoApi) : '---'}
             </p>
           </div>
