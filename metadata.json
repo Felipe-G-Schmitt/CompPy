@@ -1,0 +1,5 @@
+{
+  "name": "Comppy Price Comparator",
+  "description": "A mobile-first price comparison app that tracks product costs and sales across multiple stores with real-time USD/BRL exchange rates.",
+  "requestFramePermissions": []
+}
