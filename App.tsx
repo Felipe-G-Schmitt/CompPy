@@ -12,7 +12,7 @@ export default function App() {
   const [data, setData] = useState<ApiResponse | null>(null);
   const [realtimeQuote, setRealtimeQuote] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
-  const [normalizing, setNormalizing] = useState(false);
+  const [processing, setProcessing] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedStore, setSelectedStore] = useState<string>('Todas');
@@ -38,77 +38,78 @@ export default function App() {
     return null;
   };
 
-  const normalizeAndColorizeProducts = async (products: Product[]) => {
-    setNormalizing(true);
-    try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-      
-      const productsToProcess = products.filter(p => p.anuncio.toLowerCase().includes('iphone'));
-      
-      if (productsToProcess.length === 0) {
-        setNormalizing(false);
-        return products;
-      }
+  const identifyColorHex = (title: string): string => {
+    const t = title.toLowerCase();
+    
+    if (t.includes('midnight') || t.includes('black') || t.includes('preto')) return '#2B2B2B';
+    if (t.includes('starlight') || t.includes('white') || t.includes('branco') || t.includes('silver') || t.includes('prata')) return '#F5F5F5';
+    if (t.includes('azul') || t.includes('blue') || t.includes('ultramarine') || t.includes('ultramarino') || t.includes('deep blue') || t.includes('azul nevoa') || t.includes('azul intenso')) return '#4D97FF';
+    if (t.includes('rosa') || t.includes('pink') || t.includes('lavander') || t.includes('lavanda')) return '#FF8EF3';
+    if (t.includes('green') || t.includes('verde') || t.includes('teal') || t.includes('salvia') || t.includes('sage')) return '#0BD867';
+    if (t.includes('yellow')) return '#FFDC5B';
+    if (t.includes('cosmic orange') || t.includes('laranja cosmico') || t.includes('laranja')) return '#FFA84F';
+    
+    return '#E0E0E0';
+  };
 
-      const titles = productsToProcess.map(p => p.anuncio).join('\n');
+  const normalizeTitleInternally = (title: string): string => {
+    if (!title.toLowerCase().includes('iphone')) return title;
 
-      const prompt = `Sua função agora é DUPLA: Normalizar títulos e Identificar a COR HEX.
+    let result = "Apple iPhone";
+    const modelMatch = title.match(/(?:iphone\s+)?(\d+(?:\s*(?:pro\s*max|pro|plus|mini|se))?)/i);
+    const model = modelMatch ? modelMatch[1].trim() : "";
+    if (model) result += " " + model;
 
-REGRAS DE NORMALIZAÇÃO:
-1. Formato: Apple iPhone <MODELO> <ARMAZENAMENTO>/<RAM opcional> <COR> <OBSERVAÇÃO opcional>
-2. Manter: "Apple iPhone", Modelo, Armazenamento, RAM (se explícito), Cor e Observações entre parênteses.
-3. REMOVER: Códigos (A2633, etc), termos técnicos irrelevantes (Tela, MP, Esim), tamanho de tela.
-4. Se houver hífen "-" separando a cor, manter apenas a cor após o hífen.
-
-REGRAS DE IDENTIFICAÇÃO DE COR:
-Identifique a COR presente no título original e retorne o HEX correspondente baseado neste mapeamento:
-- Midnight, black, preto → #2B2B2B
-- Starlight, white, branco, silver, prata → #F5F5F5
-- Azul, blue, ultramarine, ultramarino, deep blue, azul nevoa, azul intenso → #4D97FF
-- Rosa, pink, lavander, lavanda → #FF8EF3
-- Green, verde, teal, salvia, sage → #0BD867
-- Yellow → #FFDC5B
-- Cosmic Orange, laranja cosmico, laranja → #FFA84F
-- Outros/Não identificado → #E0E0E0
-
-Para cada entrada, retorne exatamente: Título Normalizado | #HEX
-Retorne uma linha por produto, na mesma ordem de entrada. Não explique nada.
-
-ENTRADA:
-${titles}`;
-
-      const response = await ai.models.generateContent({
-        model: 'gemini-3-flash-preview',
-        contents: prompt,
-      });
-
-      const lines = response.text?.trim().split('\n') || [];
-      
-      let processedIndex = 0;
-      const updatedProducts = products.map(p => {
-        if (p.anuncio.toLowerCase().includes('iphone') && lines[processedIndex]) {
-          const line = lines[processedIndex].trim();
-          processedIndex++;
-          
-          const parts = line.split('|');
-          if (parts.length >= 2) {
-            return { 
-              ...p, 
-              anuncio: parts[0].trim(), 
-              corHex: parts[1].trim() 
-            };
-          }
-        }
-        return p;
-      });
-
-      setNormalizing(false);
-      return updatedProducts;
-    } catch (err) {
-      console.error("Erro no processamento IA:", err);
-      setNormalizing(false);
-      return products;
+    const storageRamMatch = title.match(/(\d+(?:GB|TB))(?:\/(\d+GB))?/i);
+    if (storageRamMatch) {
+      const storage = storageRamMatch[1].toUpperCase();
+      const ram = storageRamMatch[2] ? `/${storageRamMatch[2].toUpperCase()}` : "";
+      result += ` ${storage}${ram}`;
     }
+
+    let color = "";
+    if (title.includes(' - ')) {
+      const parts = title.split(' - ');
+      const potentialColor = parts[parts.length - 1].trim().split(' ')[0];
+      color = potentialColor;
+    } else {
+      const colorKeywords = [
+        'midnight', 'black', 'preto', 'starlight', 'white', 'branco', 'silver', 'prata',
+        'azul', 'blue', 'ultramarine', 'ultramarino', 'deep blue', 'azul nevoa', 'azul intenso',
+        'rosa', 'pink', 'lavander', 'lavanda', 'green', 'verde', 'teal', 'salvia', 'sage',
+        'yellow', 'cosmic orange', 'laranja'
+      ];
+      for (const cw of colorKeywords) {
+        const regex = new RegExp(`\\b${cw}\\b`, 'i');
+        if (regex.test(title)) {
+          color = cw;
+          break;
+        }
+      }
+    }
+    if (color) {
+      result += " " + color.charAt(0).toUpperCase() + color.slice(1).toLowerCase();
+    }
+
+    const obsMatch = title.match(/\(([^)]+)\)/);
+    if (obsMatch) result += ` (${obsMatch[1]})`;
+
+    return result.replace(/\s+/g, ' ').trim();
+  };
+
+  const processProductsInternally = (products: Product[]) => {
+    setProcessing(true);
+    const updatedProducts = products.map(p => {
+      const hex = identifyColorHex(p.anuncio);
+      const normalizedTitle = normalizeTitleInternally(p.anuncio);
+      return { 
+        ...p, 
+        anuncio: normalizedTitle, 
+        corHex: hex 
+      };
+    });
+    setProcessing(false);
+    return updatedProducts;
   };
 
   const fetchData = async () => {
@@ -135,10 +136,8 @@ ${titles}`;
         }
 
         if (json && json.produtos) {
-          setData(json);
-          
-          const processedProducts = await normalizeAndColorizeProducts(json.produtos);
-          setData({ ...json, produtos: processedProducts });
+          const processed = processProductsInternally(json.produtos);
+          setData({ ...json, produtos: processed });
           setError(null);
           setLoading(false);
           return;
@@ -173,7 +172,7 @@ ${titles}`;
     return ['Todas', ...uniqueStores];
   }, [data]);
 
-  if (loading && !data) return <Loader />;
+  if (loading && !data) return < Loader / > ;
 
   return (
     <div className="min-h-screen bg-slate-50 safe-bottom">
@@ -192,15 +191,41 @@ ${titles}`;
           onSelect={setSelectedStore} 
         />
 
+        {/* Informações e Regras */}
+        <div className="bg-indigo-50/50 rounded-2xl p-4 border border-indigo-100/50 space-y-3 shadow-sm">
+          <div className="flex items-start gap-2.5">
+            <div className="mt-1 w-1.5 h-1.5 bg-indigo-500 rounded-full flex-shrink-0"></div>
+            <p className="text-[11px] font-bold text-slate-600 leading-relaxed uppercase tracking-tight">
+              Do iPhone 13 ao 16, todos são 128GB
+            </p>
+          </div>
+          
+          <div className="pt-2 border-t border-indigo-100/50">
+            <span className="text-[9px] font-black text-indigo-400 uppercase tracking-widest block mb-1">Cálculo de Custo</span>
+            <p className="text-[10px] text-slate-500 font-medium leading-relaxed">
+              Dolar + 8% * dolar referência (dolar para real + 0,15)
+            </p>
+          </div>
+
+          <div className="pt-2 border-t border-indigo-100/50">
+            <span className="text-[9px] font-black text-indigo-400 uppercase tracking-widest block mb-1">Cálculo de Lucro</span>
+            <ul className="text-[10px] text-slate-500 font-medium space-y-1">
+              <li className="flex justify-between"><span>iPhone 13 ao 16:</span> <span className="font-bold text-slate-600">custo * 1,15</span></li>
+              <li className="flex justify-between"><span>iPhone 17 ao 17 Pro:</span> <span className="font-bold text-slate-600">custo + 800,00</span></li>
+              <li className="flex justify-between"><span>iPhone 17 Pro Max:</span> <span className="font-bold text-slate-600">custo + 1000,00</span></li>
+            </ul>
+          </div>
+        </div>
+
         <div className="flex justify-between items-center text-[10px] text-slate-400 px-1">
           <div className="flex items-center gap-2">
             <span className="font-black uppercase tracking-widest bg-slate-200/50 px-2 py-1 rounded-md">
               {filteredProducts.length} ITENS ENCONTRADOS
             </span>
-            {normalizing && (
+            {processing && (
               <span className="flex items-center gap-1 text-indigo-500 font-bold animate-pulse">
                 <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span>
-                IA PROCESSANDO...
+                ORGANIZANDO...
               </span>
             )}
           </div>
