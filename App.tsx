@@ -18,8 +18,12 @@ export default function App() {
   const [selectedStore, setSelectedStore] = useState<string>('Todas');
 
   const fetchRealtimeDollar = async () => {
+    if (!process.env.API_KEY || process.env.API_KEY === 'undefined') {
+      console.warn("API Key não encontrada ou inválida.");
+      return null;
+    }
+
     try {
-      // Inicialização segura conforme diretrizes
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       const response = await ai.models.generateContent({
         model: 'gemini-3-flash-preview',
@@ -98,22 +102,26 @@ export default function App() {
     setError(null);
     const apiUrl = 'https://comppyrender.onrender.com/api/precos';
     
-    // Lista de estratégias para contornar CORS e instabilidades
     const strategies = [
       { url: apiUrl, type: 'direct' },
       { url: `https://api.allorigins.win/get?url=${encodeURIComponent(apiUrl)}&t=${Date.now()}`, type: 'allorigins' },
-      { url: `https://corsproxy.io/?${encodeURIComponent(apiUrl)}`, type: 'corsproxy' }
+      { url: `https://api.codetabs.com/v1/proxy?url=${encodeURIComponent(apiUrl)}`, type: 'codetabs' },
+      { url: `https://cors-anywhere.herokuapp.com/${apiUrl}`, type: 'cors-anywhere' }
     ];
 
     for (const strategy of strategies) {
       try {
         const res = await fetch(strategy.url);
-        if (!res.ok) throw new Error(`Status: ${res.status}`);
+        if (!res.ok) continue;
         
         let json;
         if (strategy.type === 'allorigins') {
           const proxyRes = await res.json();
-          json = JSON.parse(proxyRes.contents);
+          if (proxyRes.contents) {
+            json = JSON.parse(proxyRes.contents);
+          } else {
+            continue;
+          }
         } else {
           json = await res.json();
         }
@@ -164,7 +172,6 @@ export default function App() {
         <SearchBar value={searchQuery} onChange={setSearchQuery} />
         <StoreTabs stores={stores} selected={selectedStore} onSelect={setSelectedStore} />
 
-        {/* Card Informativo de Regras */}
         <div className="bg-white rounded-3xl p-5 border border-slate-200 shadow-sm space-y-4">
           <div className="flex items-center gap-2">
             <div className="w-1.5 h-6 bg-indigo-600 rounded-full"></div>
