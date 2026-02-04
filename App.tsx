@@ -28,11 +28,11 @@ export default function App() {
       const response = await ai.models.generateContent({
         model: 'gemini-3-flash-preview',
         contents: 'Retorne apenas o valor numérico da cotação do dólar para real brasileiro (USD/BRL) agora. Exemplo: 5.85.',
-        config: { 
-          tools: [{ googleSearch: {} }] 
+        config: {
+          tools: [{ googleSearch: {} }]
         },
       });
-      
+
       const match = response.text?.match(/\d+[.,]\d+/);
       if (match) {
         const val = parseFloat(match[0].replace(',', '.'));
@@ -100,45 +100,29 @@ export default function App() {
   const fetchData = async () => {
     setLoading(true);
     setError(null);
-    const apiUrl = 'https://comppyrender.onrender.com/api/precos';
-    
-    const strategies = [
-      { url: apiUrl, type: 'direct' },
-      { url: `https://api.allorigins.win/get?url=${encodeURIComponent(apiUrl)}&t=${Date.now()}`, type: 'allorigins' },
-      { url: `https://api.codetabs.com/v1/proxy?url=${encodeURIComponent(apiUrl)}`, type: 'codetabs' },
-      { url: `https://cors-anywhere.herokuapp.com/${apiUrl}`, type: 'cors-anywhere' }
-    ];
 
-    for (const strategy of strategies) {
-      try {
-        const res = await fetch(strategy.url);
-        if (!res.ok) continue;
-        
-        let json;
-        if (strategy.type === 'allorigins') {
-          const proxyRes = await res.json();
-          if (proxyRes.contents) {
-            json = JSON.parse(proxyRes.contents);
-          } else {
-            continue;
-          }
-        } else {
-          json = await res.json();
-        }
-
-        if (json && json.produtos) {
-          const processed = processProductsInternally(json.produtos);
-          setData({ ...json, produtos: processed });
-          setLoading(false);
-          return;
-        }
-      } catch (err) {
-        console.warn(`Falha na estratégia ${strategy.type}:`, err);
+    try {
+      // O caminho deve ser relativo à raiz do servidor (pasta public)
+      const res = await fetch('/precos.json');
+      
+      if (!res.ok) {
+        throw new Error('Não foi possível carregar o arquivo precos.json');
       }
-    }
 
-    setError('Servidor temporariamente indisponível. Tente sincronizar novamente.');
-    setLoading(false);
+      const json = await res.json();
+
+      if (json && json.produtos) {
+        const processed = processProductsInternally(json.produtos);
+        setData({ ...json, produtos: processed });
+        setLoading(false);
+      } else {
+        throw new Error('Formato de JSON inválido');
+      }
+    } catch (err) {
+      console.error("Erro ao carregar dados locais:", err);
+      setError('Erro ao carregar os dados do arquivo local.');
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -167,7 +151,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-50 safe-bottom">
       <Header cotacaoApi={data?.cotacaoDolar || 0} cotacaoRealtime={realtimeQuote} lastUpdate={data?.atualizadoEm} />
-      
+
       <main className="px-4 pt-5 pb-12 space-y-5 max-w-2xl mx-auto">
         <SearchBar value={searchQuery} onChange={setSearchQuery} />
         <StoreTabs stores={stores} selected={selectedStore} onSelect={setSelectedStore} />
@@ -177,7 +161,7 @@ export default function App() {
             <div className="w-1.5 h-6 bg-indigo-600 rounded-full"></div>
             <h4 className="text-[11px] font-black uppercase tracking-widest text-slate-800">Regras de Negócio</h4>
           </div>
-          
+
           <div className="grid grid-cols-1 gap-4">
             <div className="bg-slate-50 p-3 rounded-2xl border border-slate-100">
               <span className="text-[9px] font-black text-indigo-500 uppercase block mb-1">Modelos Base</span>
@@ -188,7 +172,7 @@ export default function App() {
               <div>
                 <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest block mb-1">Cálculo de Custo</span>
                 <p className="text-[10px] text-slate-500 font-medium bg-indigo-50/50 p-2 rounded-xl border border-indigo-100">
-                  dolar + 8% * dolar referencia <br/>
+                  dolar + 8% * dolar referencia <br />
                   <span className="text-[9px] opacity-70">(dolar para real + 0,15)</span>
                 </p>
               </div>
