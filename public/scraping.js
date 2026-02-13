@@ -6,7 +6,8 @@ const path = require("path");
 const lojasPermitidas = [
   "megaeletronicos.com",
   "atacadoconnect.com",
-  "nissei.com"
+  "nissei.com",
+  "bestshop.com"
 ];
 
 const urls = [
@@ -18,7 +19,9 @@ const urls = [
   "https://www.comprasparaguai.com.br/celular-apple-iphone-17-pro-256gb_63989/?ordem=menor-preco",
   "https://www.comprasparaguai.com.br/celular-apple-iphone-17-pro-512gb_63990/?ordem=menor-preco",
   "https://www.comprasparaguai.com.br/celular-apple-iphone-17-pro-max-256gb_64041/?ordem=menor-preco",
-  "https://www.comprasparaguai.com.br/celular-apple-iphone-17-pro-max-512gb_64042/?ordem=menor-preco"
+  "https://www.comprasparaguai.com.br/celular-apple-iphone-17-pro-max-512gb_64042/?ordem=menor-preco",
+  "https://www.comprasparaguai.com.br/tablet-apple-ipad-11a-geracao-2025-128gb-11_59111/?ordem=menor-preco",
+  "https://www.comprasparaguai.com.br/tablet-apple-ipad-11a-geracao-2025-128gb-11-5g_66624/?ordem=menor-preco"
 ];
 
 function formatarNomeLoja(url) {
