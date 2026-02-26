@@ -94,6 +94,7 @@ async function buscarPrecos(url, dolarFinal) {
     );
 
     const precoCusto = precoDolar * 1.085 * dolarFinal;
+    const precoCustoIpad = precoDolar * 1.18 * dolarFinal;
     const titulo = anuncio.toLowerCase();
     let precoVenda = precoCusto;
 
@@ -104,6 +105,9 @@ async function buscarPrecos(url, dolarFinal) {
       titulo.includes("iphone 16")
     ) {
       precoVenda = precoCusto * 1.15;
+    } 
+    else if (titulo.includes("ipad")) {
+      precoVenda = precoCustoIpad * 1,2;
     } 
     else if (titulo.includes("iphone 17 pro max")) {
       precoVenda = precoCusto + 1000;
