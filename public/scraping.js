@@ -107,7 +107,7 @@ async function buscarPrecos(url, dolarFinal) {
       precoVenda = precoCusto * 1.15;
     } 
     else if (titulo.includes("ipad")) {
-      precoVenda = precoCustoIpad * 1,2;
+      precoVenda = precoCustoIpad * 1.2;
     } 
     else if (titulo.includes("iphone 17 pro max")) {
       precoVenda = precoCusto + 1000;
