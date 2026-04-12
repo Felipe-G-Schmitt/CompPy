@@ -1,7 +1,7 @@
 {
-  "atualizadoEm": "2026-04-11T12:33:44.338Z",
+  "atualizadoEm": "2026-04-12T00:38:44.821Z",
   "cotacaoDolar": 5.1542,
-  "totalProdutos": 77,
+  "totalProdutos": 78,
   "produtos": [
     {
       "anuncio": "iPhone 14 128GB A2881 128GB Blue (Esim e Sim Físico)",
@@ -123,14 +123,14 @@
       "precoVenda": 7818.35
     },
     {
-      "anuncio": "iPhone 17 Pro 256GB A3256 LL/A Esim Cosmic Orange",
+      "anuncio": "iPhone 17 Pro 256GB A3256 LL/A Esim Deep Blue",
       "loja": "Bestshop",
       "valorDolar": 1260,
       "precoCusto": 7046.31,
       "precoVenda": 7846.31
     },
     {
-      "anuncio": "iPhone 17 Pro 256GB A3256 LL/A Esim Deep Blue",
+      "anuncio": "iPhone 17 Pro 256GB A3256 LL/A Esim Cosmic Orange",
       "loja": "Bestshop",
       "valorDolar": 1260,
       "precoCusto": 7046.31,
@@ -186,6 +186,13 @@
       "precoVenda": 9160.5
     },
     {
+      "anuncio": "iPhone 17 Pro 512GB A3256 LL/A Esim Cosmic Orange",
+      "loja": "Bestshop",
+      "valorDolar": 1510,
+      "precoCusto": 8444.38,
+      "precoVenda": 9244.38
+    },
+    {
       "anuncio": "iPhone 17 Pro 512GB A3526 Be/A Orange Sim Fisico + Esim Anatel",
       "loja": "Bestshop",
       "valorDolar": 1510,
@@ -207,14 +214,14 @@
       "precoVenda": 8762.12
     },
     {
-      "anuncio": "iPhone 17 Pro Max 256GB A3525 VC/A Esim Deep Blue",
+      "anuncio": "iPhone 17 Pro Max 256GB A3257 LL/A Esim Deep Blue",
       "loja": "Bestshop",
       "valorDolar": 1398,
       "precoCusto": 7818.05,
       "precoVenda": 8818.05
     },
     {
-      "anuncio": "iPhone 17 Pro Max 256GB A3525 VC/A Esim Silver",
+      "anuncio": "iPhone 17 Pro Max 256GB A3257 LL/A Esim Silver",
       "loja": "Bestshop",
       "valorDolar": 1398,
       "precoCusto": 7818.05,
@@ -361,14 +368,14 @@
       "precoVenda": 10115.46
     },
     {
-      "anuncio": "Apple iPhone 17 Pro Max A3257 LL 512GB 12GB Ram Esim Tela 6.9\" - Azul",
+      "anuncio": "Apple iPhone 17 Pro Max A3525 4J 512GB Esim Tela 6.9\" - Azul Intenso",
       "loja": "Atacadoconnect",
       "valorDolar": 1640,
       "precoCusto": 9171.38,
       "precoVenda": 10171.38
     },
     {
-      "anuncio": "Apple iPhone 17 Pro Max A3525 4J 512GB Esim Tela 6.9\" - Azul Intenso",
+      "anuncio": "Apple iPhone 17 Pro Max A3257 LL 512GB 12GB Ram Esim Tela 6.9\" - Azul",
       "loja": "Atacadoconnect",
       "valorDolar": 1640,
       "precoCusto": 9171.38,
