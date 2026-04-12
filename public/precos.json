@@ -1,7 +1,7 @@
 {
-  "atualizadoEm": "2026-04-12T00:38:44.821Z",
+  "atualizadoEm": "2026-04-12T15:13:46.802Z",
   "cotacaoDolar": 5.1542,
-  "totalProdutos": 78,
+  "totalProdutos": 82,
   "produtos": [
     {
       "anuncio": "iPhone 14 128GB A2881 128GB Blue (Esim e Sim Físico)",
@@ -41,16 +41,9 @@
     {
       "anuncio": "Apple iPhone 15 A3090 128 GB - Blue",
       "loja": "Nissei",
-      "valorDolar": 610,
-      "precoCusto": 3411.31,
-      "precoVenda": 3923
-    },
-    {
-      "anuncio": "Apple iPhone 15 A3090 128 GB - Midnight",
-      "loja": "Nissei",
-      "valorDolar": 620,
-      "precoCusto": 3467.23,
-      "precoVenda": 3987.31
+      "valorDolar": 615,
+      "precoCusto": 3439.27,
+      "precoVenda": 3955.16
     },
     {
       "anuncio": "iPhone 15 128GB A3090 128GB Pink HN",
@@ -116,15 +109,15 @@
       "precoVenda": 7801.57
     },
     {
-      "anuncio": "Apple iPhone 17 Pro A3256 LL 256GB 12GB Ram Esim Tela 6.3\" - Azul",
+      "anuncio": "Apple iPhone 17 Pro A3522 VC 256GB Esim Tela 6.3\" - Laranja Cósmico",
       "loja": "Atacadoconnect",
       "valorDolar": 1255,
       "precoCusto": 7018.35,
       "precoVenda": 7818.35
     },
     {
-      "anuncio": "iPhone 17 Pro 256GB A3256 LL/A Esim Deep Blue",
-      "loja": "Bestshop",
+      "anuncio": "Apple iPhone 17 Pro A3256 LL 256GB 12GB Ram Esim Tela 6.3\" - Azul",
+      "loja": "Atacadoconnect",
       "valorDolar": 1260,
       "precoCusto": 7046.31,
       "precoVenda": 7846.31
@@ -137,11 +130,11 @@
       "precoVenda": 7846.31
     },
     {
-      "anuncio": "Apple iPhone 17 Pro A3256 Dual 256 GB - Deep Blue",
-      "loja": "Nissei",
-      "valorDolar": 1265,
-      "precoCusto": 7074.27,
-      "precoVenda": 7874.27
+      "anuncio": "iPhone 17 Pro 256GB A3256 LL/A Esim Deep Blue",
+      "loja": "Bestshop",
+      "valorDolar": 1260,
+      "precoCusto": 7046.31,
+      "precoVenda": 7846.31
     },
     {
       "anuncio": "Apple iPhone 17 Pro A3523 Be 256GB 12GB Ram Tela 6.3\" - Laranja Cósmico (Anatel)",
@@ -151,11 +144,11 @@
       "precoVenda": 7874.27
     },
     {
-      "anuncio": "Apple iPhone 17 Pro A3256 Esim 256GB/12GB Ram de 6.3\" 48+48+48MP/18MP - Silver",
-      "loja": "Megaeletronicos",
-      "valorDolar": 1270,
-      "precoCusto": 7102.23,
-      "precoVenda": 7902.23
+      "anuncio": "Apple iPhone 17 Pro A3256 LL 256GB Esim Tela 6.3\" - Prata",
+      "loja": "Atacadoconnect",
+      "valorDolar": 1268,
+      "precoCusto": 7091.05,
+      "precoVenda": 7891.05
     },
     {
       "anuncio": "Apple iPhone 17 Pro A3256 Esim 256GB/12GB Ram de 6.3\" 48+48+48MP/18MP - Cosmic Orange",
@@ -172,6 +165,27 @@
       "precoVenda": 7902.23
     },
     {
+      "anuncio": "Apple iPhone 17 Pro A3256 Dual 256 GB - Silver",
+      "loja": "Nissei",
+      "valorDolar": 1275,
+      "precoCusto": 7130.19,
+      "precoVenda": 7930.19
+    },
+    {
+      "anuncio": "Apple iPhone 17 Pro A3256 Dual 256 GB - Deep Blue",
+      "loja": "Nissei",
+      "valorDolar": 1275,
+      "precoCusto": 7130.19,
+      "precoVenda": 7930.19
+    },
+    {
+      "anuncio": "Apple iPhone 17 Pro A3256 Dual 256 GB - Cosmic Orange",
+      "loja": "Nissei",
+      "valorDolar": 1275,
+      "precoCusto": 7130.19,
+      "precoVenda": 7930.19
+    },
+    {
       "anuncio": "iPhone 17 Pro 256GB A3256 Be/A Orange Sim Fisico + Esim (Anatel)",
       "loja": "Bestshop",
       "valorDolar": 1280,
@@ -179,11 +193,25 @@
       "precoVenda": 7958.15
     },
     {
+      "anuncio": "Apple iPhone 17 Pro A3522 VC 256GB Esim Tela 6.3\" - Azul Intenso",
+      "loja": "Atacadoconnect",
+      "valorDolar": 1305,
+      "precoCusto": 7297.96,
+      "precoVenda": 8097.96
+    },
+    {
       "anuncio": "Apple iPhone 17 Pro A 4J 512GB Esim Tela 6.3\" - Laranja Cósmico",
       "loja": "Atacadoconnect",
       "valorDolar": 1495,
       "precoCusto": 8360.5,
       "precoVenda": 9160.5
+    },
+    {
+      "anuncio": "Apple iPhone 17 Pro A3256 Dual 512 GB - Cosmic Orange",
+      "loja": "Nissei",
+      "valorDolar": 1500,
+      "precoCusto": 8388.46,
+      "precoVenda": 9188.46
     },
     {
       "anuncio": "iPhone 17 Pro 512GB A3256 LL/A Esim Cosmic Orange",
@@ -198,6 +226,27 @@
       "valorDolar": 1510,
       "precoCusto": 8444.38,
       "precoVenda": 9244.38
+    },
+    {
+      "anuncio": "Apple iPhone 17 Pro A3256 Dual 512 GB - Silver",
+      "loja": "Nissei",
+      "valorDolar": 1530,
+      "precoCusto": 8556.23,
+      "precoVenda": 9356.23
+    },
+    {
+      "anuncio": "Apple iPhone 17 Pro A3256 Dual 512 GB - Deep Blue",
+      "loja": "Nissei",
+      "valorDolar": 1530,
+      "precoCusto": 8556.23,
+      "precoVenda": 9356.23
+    },
+    {
+      "anuncio": "Apple iPhone 17 Pro Max A3525 4J 256GB Esim Tela 6.9\" - Laranja Cósmico",
+      "loja": "Atacadoconnect",
+      "valorDolar": 1380,
+      "precoCusto": 7717.38,
+      "precoVenda": 8717.38
     },
     {
       "anuncio": "Apple iPhone 17 Pro Max A3257 LL 256GB 12GB Ram Esim Tela 6.9\" - Laranja Cósmico",
@@ -277,6 +326,13 @@
       "precoVenda": 8941.08
     },
     {
+      "anuncio": "Apple iPhone 17 Pro Max A3257 LL 256GB 12GB Ram Esim Tela 6.9\" - Prata",
+      "loja": "Atacadoconnect",
+      "valorDolar": 1420,
+      "precoCusto": 7941.08,
+      "precoVenda": 8941.08
+    },
+    {
       "anuncio": "Apple iPhone 17 Pro Max A3525 4J 256GB Esim Tela 6.9\" - Azul Intenso",
       "loja": "Atacadoconnect",
       "valorDolar": 1420,
@@ -319,20 +375,6 @@
       "precoVenda": 8969.04
     },
     {
-      "anuncio": "Apple iPhone 17 Pro Max A3257 Esim 256GB/12GB Ram de 6.9\" 48+48+48MP/18MP - Silver (CX Feia s/ Lacre)",
-      "loja": "Megaeletronicos",
-      "valorDolar": 1425,
-      "precoCusto": 7969.04,
-      "precoVenda": 8969.04
-    },
-    {
-      "anuncio": "Apple iPhone 17 Pro Max A3526 Nano + Esim 256GB/12GB Ram de 6.9\" 48+48+48MP/18MP - Cosmic Orange (Anatel)",
-      "loja": "Megaeletronicos",
-      "valorDolar": 1425,
-      "precoCusto": 7969.04,
-      "precoVenda": 8969.04
-    },
-    {
       "anuncio": "iPhone 17 Pro Max 256GB A3526 Be/A Cosmic Orange Sim Fisico + Esim",
       "loja": "Bestshop",
       "valorDolar": 1425,
@@ -354,25 +396,11 @@
       "precoVenda": 9024.96
     },
     {
-      "anuncio": "Apple iPhone 17 Pro Max A3526 Dual 256 GB MFYM4BE/A - Silver",
-      "loja": "Nissei",
-      "valorDolar": 1450,
-      "precoCusto": 8108.85,
-      "precoVenda": 9108.85
-    },
-    {
       "anuncio": "Apple iPhone 17 Pro Max A3526 Nano + Esim 512GB/12GB Ram de 6.9\" 48+48+48MP/18MP - Cosmic Orange (Anatel)",
       "loja": "Megaeletronicos",
       "valorDolar": 1630,
       "precoCusto": 9115.46,
       "precoVenda": 10115.46
-    },
-    {
-      "anuncio": "Apple iPhone 17 Pro Max A3525 4J 512GB Esim Tela 6.9\" - Azul Intenso",
-      "loja": "Atacadoconnect",
-      "valorDolar": 1640,
-      "precoCusto": 9171.38,
-      "precoVenda": 10171.38
     },
     {
       "anuncio": "Apple iPhone 17 Pro Max A3257 LL 512GB 12GB Ram Esim Tela 6.9\" - Azul",
@@ -382,11 +410,11 @@
       "precoVenda": 10171.38
     },
     {
-      "anuncio": "Apple iPhone 17 Pro Max A3257 Dual 512 GB - Silver",
-      "loja": "Nissei",
-      "valorDolar": 1650,
-      "precoCusto": 9227.31,
-      "precoVenda": 10227.31
+      "anuncio": "Apple iPhone 17 Pro Max A3525 4J 512GB Esim Tela 6.9\" - Azul Intenso",
+      "loja": "Atacadoconnect",
+      "valorDolar": 1640,
+      "precoCusto": 9171.38,
+      "precoVenda": 10171.38
     },
     {
       "anuncio": "Apple iPhone 17 Pro Max A3257 Dual 512 GB - Deep Blue",
@@ -403,14 +431,14 @@
       "precoVenda": 10227.31
     },
     {
-      "anuncio": "Apple iPhone 17 Pro Max A3526 Nano + Esim 512GB/12GB Ram de 6.9\" 48+48+48MP/18MP - Deep Blue (Anatel)",
+      "anuncio": "Apple iPhone 17 Pro Max A3526 Nano + Esim 512GB/12GB Ram de 6.9\" 48+48+48MP/18MP - Silver (Anatel)",
       "loja": "Megaeletronicos",
       "valorDolar": 1660,
       "precoCusto": 9283.23,
       "precoVenda": 10283.23
     },
     {
-      "anuncio": "Apple iPhone 17 Pro Max A3526 Nano + Esim 512GB/12GB Ram de 6.9\" 48+48+48MP/18MP - Silver (Anatel)",
+      "anuncio": "Apple iPhone 17 Pro Max A3526 Nano + Esim 512GB/12GB Ram de 6.9\" 48+48+48MP/18MP - Deep Blue (Anatel)",
       "loja": "Megaeletronicos",
       "valorDolar": 1660,
       "precoCusto": 9283.23,
