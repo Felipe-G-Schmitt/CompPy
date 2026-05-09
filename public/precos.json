@@ -1,7 +1,7 @@
 {
-  "atualizadoEm": "2026-05-09T15:28:01.803Z",
+  "atualizadoEm": "2026-05-09T20:21:07.216Z",
   "cotacaoDolar": 5.0594,
-  "totalProdutos": 60,
+  "totalProdutos": 67,
   "produtos": [
     {
       "anuncio": "Apple iPhone 15 A3090 128 GB - Blue",
@@ -109,6 +109,13 @@
       "precoVenda": 5054.32
     },
     {
+      "anuncio": "Apple iPhone 17 A3258 Esim 256GB/8GB Ram de 6.3\" 48+48MP/18MP - Sage",
+      "loja": "Megaeletronicos",
+      "valorDolar": 775,
+      "precoCusto": 4254.32,
+      "precoVenda": 5054.32
+    },
+    {
       "anuncio": "Apple iPhone 17 A3258 Esim 256GB/8GB Ram de 6.3\" 48+48MP/18MP - Mist Blue",
       "loja": "Megaeletronicos",
       "valorDolar": 775,
@@ -116,7 +123,7 @@
       "precoVenda": 5054.32
     },
     {
-      "anuncio": "Apple iPhone 17 A3258 Esim 256GB/8GB Ram de 6.3\" 48+48MP/18MP - Sage",
+      "anuncio": "Apple iPhone 17 A3258 Esim 256GB/8GB Ram de 6.3\" 48+48MP/18MP - Black",
       "loja": "Megaeletronicos",
       "valorDolar": 775,
       "precoCusto": 4254.32,
@@ -128,6 +135,34 @@
       "valorDolar": 775,
       "precoCusto": 4254.32,
       "precoVenda": 5054.32
+    },
+    {
+      "anuncio": "Apple iPhone 17 A3258 Esim 256GB/8GB Ram de 6.3\" 48+48MP/18MP + Pelicula + Capa Transparente/Preto",
+      "loja": "Megaeletronicos",
+      "valorDolar": 778,
+      "precoCusto": 4270.79,
+      "precoVenda": 5070.79
+    },
+    {
+      "anuncio": "Apple iPhone 17 A3258 Dual 256 GB - White",
+      "loja": "Nissei",
+      "valorDolar": 779,
+      "precoCusto": 4276.28,
+      "precoVenda": 5076.28
+    },
+    {
+      "anuncio": "Apple iPhone 17 A3258 Dual 256 GB - Lavander",
+      "loja": "Nissei",
+      "valorDolar": 779,
+      "precoCusto": 4276.28,
+      "precoVenda": 5076.28
+    },
+    {
+      "anuncio": "Apple iPhone 17 A3258 Dual 256 GB - Black",
+      "loja": "Nissei",
+      "valorDolar": 779,
+      "precoCusto": 4276.28,
+      "precoVenda": 5076.28
     },
     {
       "anuncio": "Apple iPhone 17 A3520 HN 256GB 8GB Ram Tela 6.3\" - Sálvia",
@@ -173,6 +208,13 @@
     },
     {
       "anuncio": "Apple iPhone 17 Pro A3256 Dual 512 GB - Deep Blue",
+      "loja": "Nissei",
+      "valorDolar": 1490,
+      "precoCusto": 8179.28,
+      "precoVenda": 8979.28
+    },
+    {
+      "anuncio": "Apple iPhone 17 Pro A3256 Dual 512 GB - Silver",
       "loja": "Nissei",
       "valorDolar": 1490,
       "precoCusto": 8179.28,
@@ -338,6 +380,13 @@
       "valorDolar": 1500,
       "precoCusto": 8234.17,
       "precoVenda": 9234.17
+    },
+    {
+      "anuncio": "Apple iPhone 17 Pro Max A3257 Dual 512 GB - Silver",
+      "loja": "Nissei",
+      "valorDolar": 1650,
+      "precoCusto": 9057.59,
+      "precoVenda": 10057.59
     },
     {
       "anuncio": "Apple iPad 11ª Geração MD4E4LL/A 10.9\" Chip A16 Bionic 128GB - Rosa",
