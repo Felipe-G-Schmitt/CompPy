@@ -1,7 +1,7 @@
 {
-  "atualizadoEm": "2026-07-10T21:57:05.910Z",
+  "atualizadoEm": "2026-07-11T03:00:07.161Z",
   "cotacaoDolar": 5.2564,
-  "totalProdutos": 86,
+  "totalProdutos": 87,
   "produtos": [
     {
       "anuncio": "iPhone 13 128GB A2634 2CHIP Starlight",
@@ -60,11 +60,11 @@
       "precoVenda": 4623.86
     },
     {
-      "anuncio": "iPhone 16 128GB A3287 HN/A Black Sim Fisico + Esim",
+      "anuncio": "iPhone 16 128GB A3287 HN/A Teal Sim Fisico + Esim",
       "loja": "Bestshop",
-      "valorDolar": 720,
-      "precoCusto": 4106.3,
-      "precoVenda": 4722.24
+      "valorDolar": 715,
+      "precoCusto": 4077.78,
+      "precoVenda": 4689.45
     },
     {
       "anuncio": "iPhone 16 128GB A3287 HN/A Ultramarine Sim Fisico + Esim",
@@ -240,6 +240,13 @@
       "valorDolar": 1155,
       "precoCusto": 6587.19,
       "precoVenda": 7387.19
+    },
+    {
+      "anuncio": "Apple iPhone 17 Pro A3523 Be 256GB 12GB Ram Tela 6.3\" - Azul Intenso (Anatel)",
+      "loja": "Atacadoconnect",
+      "valorDolar": 1215,
+      "precoCusto": 6929.38,
+      "precoVenda": 7729.38
     },
     {
       "anuncio": "Apple iPhone 17 Pro A3523 Be 256GB 12GB Ram Tela 6.3\" - Prata (Anatel)",
