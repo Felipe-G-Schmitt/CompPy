@@ -1,7 +1,7 @@
 {
-  "atualizadoEm": "2026-07-12T01:04:50.527Z",
+  "atualizadoEm": "2026-07-12T15:30:02.033Z",
   "cotacaoDolar": 5.2564,
-  "totalProdutos": 86,
+  "totalProdutos": 84,
   "produtos": [
     {
       "anuncio": "iPhone 13 128GB A2634 2CHIP Starlight",
@@ -88,7 +88,7 @@
       "precoVenda": 5875.84
     },
     {
-      "anuncio": "Apple iPhone 17 A3520 Nano + Esim 256GB/8GB Ram de 6.3\" 48+48MP/18MP - White",
+      "anuncio": "Apple iPhone 17 A3520 Nano + Esim 256GB/8GB Ram de 6.3\" 48+48MP/18MP - Black",
       "loja": "Megaeletronicos",
       "valorDolar": 899,
       "precoCusto": 5127.17,
@@ -102,7 +102,7 @@
       "precoVenda": 5927.17
     },
     {
-      "anuncio": "Apple iPhone 17 A3520 Nano + Esim 256GB/8GB Ram de 6.3\" 48+48MP/18MP - Black",
+      "anuncio": "Apple iPhone 17 A3520 Nano + Esim 256GB/8GB Ram de 6.3\" 48+48MP/18MP - White",
       "loja": "Megaeletronicos",
       "valorDolar": 899,
       "precoCusto": 5127.17,
@@ -151,7 +151,7 @@
       "precoVenda": 7130.55
     },
     {
-      "anuncio": "Apple iPhone 17 Pro A3256 Esim 256GB/12GB Ram de 6.3\" 48+48+48MP/18MP - Deep Blue",
+      "anuncio": "Apple iPhone 17 Pro A3256 Esim 256GB/12GB Ram de 6.3\" 48+48+48MP/18MP - Silver (s/ Lacre)",
       "loja": "Megaeletronicos",
       "valorDolar": 1125,
       "precoCusto": 6416.09,
@@ -159,13 +159,6 @@
     },
     {
       "anuncio": "Apple iPhone 17 Pro A3256 Esim 256GB/12GB Ram de 6.3\" 48+48+48MP/18MP - Silver",
-      "loja": "Megaeletronicos",
-      "valorDolar": 1125,
-      "precoCusto": 6416.09,
-      "precoVenda": 7216.09
-    },
-    {
-      "anuncio": "Apple iPhone 17 Pro A3256 Esim 256GB/12GB Ram de 6.3\" 48+48+48MP/18MP - Silver (s/ Lacre)",
       "loja": "Megaeletronicos",
       "valorDolar": 1125,
       "precoCusto": 6416.09,
@@ -340,14 +333,14 @@
       "precoVenda": 7900.86
     },
     {
-      "anuncio": "Apple iPhone 17 Pro Max A3257 Esim 256GB/12GB Ram de 6.9\" 48+48+48MP/18MP - Silver",
+      "anuncio": "Apple iPhone 17 Pro Max A3257 Esim 256GB/12GB Ram de 6.9\" 48+48+48MP/18MP - Deep Blue",
       "loja": "Megaeletronicos",
       "valorDolar": 1215,
       "precoCusto": 6929.38,
       "precoVenda": 7929.38
     },
     {
-      "anuncio": "Apple iPhone 17 Pro Max A3257 Esim 256GB/12GB Ram de 6.9\" 48+48+48MP/18MP - Deep Blue",
+      "anuncio": "Apple iPhone 17 Pro Max A3257 Esim 256GB/12GB Ram de 6.9\" 48+48+48MP/18MP - Silver",
       "loja": "Megaeletronicos",
       "valorDolar": 1215,
       "precoCusto": 6929.38,
@@ -550,7 +543,7 @@
       "precoVenda": 3237.73
     },
     {
-      "anuncio": "Apple iPad 11TH Generation (A16) A3354 MD4A4LL 128GB 11\" 12MP/12MP - Blue (s Lacre)",
+      "anuncio": "Apple iPad 11TH Generation (A16) A3354 MD4E4LL 128GB 11\" 12MP/12MP - Pink",
       "loja": "Megaeletronicos",
       "valorDolar": 439,
       "precoCusto": 2503.7,
@@ -558,13 +551,6 @@
     },
     {
       "anuncio": "Apple iPad 11TH Generation (A16) A3354 MD4A4LL 128GB 11\" 12MP/12MP - Blue",
-      "loja": "Megaeletronicos",
-      "valorDolar": 439,
-      "precoCusto": 2503.7,
-      "precoVenda": 3267.5
-    },
-    {
-      "anuncio": "Apple iPad 11TH Generation (A16) A3354 MD4E4LL 128GB 11\" 12MP/12MP - Pink",
       "loja": "Megaeletronicos",
       "valorDolar": 439,
       "precoCusto": 2503.7,
