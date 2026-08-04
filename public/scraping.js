@@ -55,6 +55,8 @@ async function buscarCotacaoDolar() {
 }
 
 async function buscarPrecos(url, dolarFinal) {
+  console.log(`\n🔎 Buscando: ${url}`);
+
   const response = await axios.get(url, {
     headers: {
       "User-Agent": "Mozilla/5.0",
@@ -63,10 +65,25 @@ async function buscarPrecos(url, dolarFinal) {
     timeout: 15000
   });
 
+  console.log(`   ↳ HTTP ${response.status} | HTML recebido: ${response.data.length} chars`);
+
   const $ = cheerio.load(response.data);
   const dados = [];
 
-  $(".promocao-produtos-item-text").each((_, el) => {
+  const itens = $(".promocao-produtos-item-text");
+  console.log(`   ↳ Itens encontrados (.promocao-produtos-item-text): ${itens.length}`);
+
+  if (itens.length === 0) {
+    // Se zero itens, o seletor provavelmente mudou. Loga alguns sinais do HTML.
+    console.log(`   ⚠️  Nenhum item. Diagnóstico do HTML:`);
+    console.log(`      - contém "promocao-produtos-item-text"? ${response.data.includes("promocao-produtos-item-text")}`);
+    console.log(`      - contém "promocao-item-preco-oferta"? ${response.data.includes("promocao-item-preco-oferta")}`);
+    console.log(`      - contém "store-image"? ${response.data.includes("store-image")}`);
+    console.log(`      - contém "captcha" / "cloudflare"? ${/captcha|cloudflare|cf-browser/i.test(response.data)}`);
+    console.log(`      - <title>: ${$("title").text().trim().slice(0, 120)}`);
+  }
+
+  itens.each((i, el) => {
     const container = $(el);
 
     const anuncio = container
@@ -86,8 +103,18 @@ async function buscarPrecos(url, dolarFinal) {
       .closest("a")
       .attr("href");
 
-    if (!anuncio || !precoTexto || !lojaLink) return;
-    if (!lojasPermitidas.some(l => lojaLink.includes(l))) return;
+    console.log(
+      `   [item ${i}] anuncio=${anuncio ? "OK" : "VAZIO"} | preco="${precoTexto || "VAZIO"}" | loja=${lojaLink || "VAZIO"}`
+    );
+
+    if (!anuncio || !precoTexto || !lojaLink) {
+      console.log(`      ✗ descartado: campo obrigatório vazio`);
+      return;
+    }
+    if (!lojasPermitidas.some(l => lojaLink.includes(l))) {
+      console.log(`      ✗ descartado: loja não permitida`);
+      return;
+    }
 
     const precoDolar = parseFloat(
       precoTexto.replace("US$", "").replace(".", "").replace(",", ".")
@@ -119,6 +146,8 @@ async function buscarPrecos(url, dolarFinal) {
       precoVenda = precoCusto + 800;
     }
 
+    console.log(`      ✓ aceito: ${anuncio} → US$ ${precoDolar}`);
+
     dados.push({
       anuncio,
       loja: formatarNomeLoja(lojaLink),
@@ -128,6 +157,7 @@ async function buscarPrecos(url, dolarFinal) {
     });
   });
 
+  console.log(`   ↳ Aceitos nesta URL: ${dados.length}`);
   return dados;
 }
 
@@ -138,8 +168,12 @@ async function buscarPrecos(url, dolarFinal) {
     let produtos = [];
 
     for (const url of urls) {
-      const resultado = await buscarPrecos(url, dolarFinal);
-      produtos = produtos.concat(resultado);
+      try {
+        const resultado = await buscarPrecos(url, dolarFinal);
+        produtos = produtos.concat(resultado);
+      } catch (e) {
+        console.error(`   ❌ Falha nesta URL: ${e.response?.status || ""} ${e.message}`);
+      }
     }
 
     const jsonFinal = {
@@ -152,7 +186,7 @@ async function buscarPrecos(url, dolarFinal) {
     const caminho = path.join(__dirname, "precos.json");
     fs.writeFileSync(caminho, JSON.stringify(jsonFinal, null, 2));
 
-    console.log("✅ precos.json atualizado com dólar automático");
+    console.log(`\n✅ precos.json atualizado — ${produtos.length} produtos no total`);
   } catch (erro) {
     console.error("❌ Erro no scraping:", erro.message);
   }
