@@ -1,7 +1,7 @@
 {
-  "atualizadoEm": "2026-08-29T17:54:56.710Z",
+  "atualizadoEm": "2026-08-30T15:01:54.604Z",
   "cotacaoDolar": 5.335,
-  "totalProdutos": 73,
+  "totalProdutos": 75,
   "produtos": [
     {
       "anuncio": "iPhone 15 128GB A3090 128GB Black HN",
@@ -312,6 +312,20 @@
       "precoVenda": 8988.1
     },
     {
+      "anuncio": "Apple iPhone 17 Pro Max A3257 Esim 256GB/12GB Ram de 6.9\" 48+48+48MP/18MP + Pelicula Privacy Unipha",
+      "loja": "Mega Eletrônicos",
+      "valorDolar": 1620,
+      "precoCusto": 9377.33,
+      "precoVenda": 10377.33
+    },
+    {
+      "anuncio": "Apple iPhone 17 Pro Max A3257 Esim 256GB/12GB Ram de 6.9\" 48+48+48MP/18MP + Pelicula Privacy Unipha",
+      "loja": "Mega Eletro",
+      "valorDolar": 1620,
+      "precoCusto": 9377.33,
+      "precoVenda": 10377.33
+    },
+    {
       "anuncio": "Apple iPhone 17 Pro Max A3257 Dual 512 GB - Deep Blue",
       "loja": "Nissei",
       "valorDolar": 1475,
@@ -368,6 +382,13 @@
       "precoVenda": 3286.15
     },
     {
+      "anuncio": "Apple iPad 11TH Generation (A16) A3354 MD4E4LL 128GB 11\" 12MP/12MP - Pink",
+      "loja": "Mega Eletrônicos",
+      "valorDolar": 435,
+      "precoCusto": 2517.99,
+      "precoVenda": 3286.15
+    },
+    {
       "anuncio": "Apple iPad 11TH Generation (A16) A3354 MD4E4LL 128GB 11\" 12MP/12MP - Pink (s/ Lacre)",
       "loja": "Mega Eletrônicos",
       "valorDolar": 435,
@@ -376,13 +397,6 @@
     },
     {
       "anuncio": "Apple iPad 11TH Generation (A16) A3354 MD4A4LL 128GB 11\" 12MP/12MP - Blue",
-      "loja": "Mega Eletrônicos",
-      "valorDolar": 435,
-      "precoCusto": 2517.99,
-      "precoVenda": 3286.15
-    },
-    {
-      "anuncio": "Apple iPad 11TH Generation (A16) A3354 MD4E4LL 128GB 11\" 12MP/12MP - Pink",
       "loja": "Mega Eletrônicos",
       "valorDolar": 435,
       "precoCusto": 2517.99,
