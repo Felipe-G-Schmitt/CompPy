@@ -1,7 +1,7 @@
 {
-  "atualizadoEm": "2026-09-04T22:05:47.422Z",
+  "atualizadoEm": "2026-09-05T13:39:33.079Z",
   "cotacaoDolar": 5.274900000000001,
-  "totalProdutos": 64,
+  "totalProdutos": 62,
   "produtos": [
     {
       "anuncio": "iPhone 15 128GB A3090 128GB Black HN",
@@ -228,21 +228,7 @@
       "precoVenda": 8612.26
     },
     {
-      "anuncio": "Apple iPhone 17 Pro A3523 Be 512GB 12GB Ram Tela 6.3\" - Azul Intenso (Anatel)",
-      "loja": "Atacado Connect",
-      "valorDolar": 1395,
-      "precoCusto": 7983.96,
-      "precoVenda": 8783.96
-    },
-    {
       "anuncio": "Apple iPhone 17 Pro A3523 Be 512GB 12GB Ram Esim Tela 6.3\" - Laranja Cósmico (Anatel)",
-      "loja": "Atacado Connect",
-      "valorDolar": 1395,
-      "precoCusto": 7983.96,
-      "precoVenda": 8783.96
-    },
-    {
-      "anuncio": "Apple iPhone 17 Pro A3523 Be 512GB 12GB Ram Tela 6.3\" - Prata (Anatel)",
       "loja": "Atacado Connect",
       "valorDolar": 1395,
       "precoCusto": 7983.96,
@@ -382,13 +368,6 @@
       "precoVenda": 3353.7
     },
     {
-      "anuncio": "Apple iPad 11TH Generation (A16) A3354 MD3Y4LL 128GB 11\" 12MP/12MP - Silver",
-      "loja": "Mega Eletro",
-      "valorDolar": 449,
-      "precoCusto": 2569.75,
-      "precoVenda": 3353.7
-    },
-    {
       "anuncio": "Apple iPad 11ª Geração MD3Y4LL/A 11\" Chip A16 128GB - Prata",
       "loja": "Atacado Connect",
       "valorDolar": 450,
@@ -405,6 +384,13 @@
     {
       "anuncio": "Apple iPad A16 (2025) 11\" Wifi 128 GB MD3Y4LL/A - Prata",
       "loja": "Nissei",
+      "valorDolar": 455,
+      "precoCusto": 2604.09,
+      "precoVenda": 3398.51
+    },
+    {
+      "anuncio": "Apple iPad 11TH Generation (A16) A3354 MD3Y4LL 128GB 11\" 12MP/12MP - Silver",
+      "loja": "Mega Eletro",
       "valorDolar": 455,
       "precoCusto": 2604.09,
       "precoVenda": 3398.51
