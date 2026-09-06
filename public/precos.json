@@ -1,7 +1,7 @@
 {
-  "atualizadoEm": "2026-09-05T13:39:33.079Z",
+  "atualizadoEm": "2026-09-06T17:49:44.529Z",
   "cotacaoDolar": 5.274900000000001,
-  "totalProdutos": 62,
+  "totalProdutos": 66,
   "produtos": [
     {
       "anuncio": "iPhone 15 128GB A3090 128GB Black HN",
@@ -123,6 +123,13 @@
       "precoVenda": 5035.04
     },
     {
+      "anuncio": "iPhone 17 256GB A3519 4J/A Esim Black",
+      "loja": "Best Shop Paraguai",
+      "valorDolar": 914,
+      "precoCusto": 5231.07,
+      "precoVenda": 6031.07
+    },
+    {
       "anuncio": "iPhone 17 256GB A3519 VC/A Esim Blue",
       "loja": "Best Shop Paraguai",
       "valorDolar": 914,
@@ -228,7 +235,28 @@
       "precoVenda": 8612.26
     },
     {
+      "anuncio": "Apple iPhone 17 Pro A3256 Dual 512 GB - Silver",
+      "loja": "Nissei",
+      "valorDolar": 1365,
+      "precoCusto": 7812.26,
+      "precoVenda": 8612.26
+    },
+    {
+      "anuncio": "Apple iPhone 17 Pro A3523 Be 512GB 12GB Ram Tela 6.3\" - Azul Intenso (Anatel)",
+      "loja": "Atacado Connect",
+      "valorDolar": 1395,
+      "precoCusto": 7983.96,
+      "precoVenda": 8783.96
+    },
+    {
       "anuncio": "Apple iPhone 17 Pro A3523 Be 512GB 12GB Ram Esim Tela 6.3\" - Laranja Cósmico (Anatel)",
+      "loja": "Atacado Connect",
+      "valorDolar": 1395,
+      "precoCusto": 7983.96,
+      "precoVenda": 8783.96
+    },
+    {
+      "anuncio": "Apple iPhone 17 Pro A3523 Be 512GB 12GB Ram Tela 6.3\" - Prata (Anatel)",
       "loja": "Atacado Connect",
       "valorDolar": 1395,
       "precoCusto": 7983.96,
@@ -291,20 +319,6 @@
       "precoVenda": 10099.99
     },
     {
-      "anuncio": "Apple iPad 11TH Geração (A16) MD4A4LL/A Blue 128GB Wi-Fi",
-      "loja": "Best Shop Paraguai",
-      "valorDolar": 440,
-      "precoCusto": 2518.24,
-      "precoVenda": 3286.47
-    },
-    {
-      "anuncio": "Apple iPad 11TH Geração (A16) MD4E4LL/A Pink 128GB Wi-Fi",
-      "loja": "Best Shop Paraguai",
-      "valorDolar": 440,
-      "precoCusto": 2518.24,
-      "precoVenda": 3286.47
-    },
-    {
       "anuncio": "Apple iPad 11ª Geração MD4A4LL/A 10.9\" Chip A16 Bionic 128GB - Azul",
       "loja": "Atacado Connect",
       "valorDolar": 445,
@@ -326,7 +340,14 @@
       "precoVenda": 3323.82
     },
     {
-      "anuncio": "Apple iPad 11TH Geração (A16) MD3Y4LL/A Silver 128GB Wi-Fi",
+      "anuncio": "Apple iPad 11TH Geração (A16) MD4A4LL/A Blue 128GB Wi-Fi",
+      "loja": "Best Shop Paraguai",
+      "valorDolar": 445,
+      "precoCusto": 2546.85,
+      "precoVenda": 3323.82
+    },
+    {
+      "anuncio": "Apple iPad 11TH Geração (A16) MD4E4LL/A Pink 128GB Wi-Fi",
       "loja": "Best Shop Paraguai",
       "valorDolar": 445,
       "precoCusto": 2546.85,
@@ -370,6 +391,13 @@
     {
       "anuncio": "Apple iPad 11ª Geração MD3Y4LL/A 11\" Chip A16 128GB - Prata",
       "loja": "Atacado Connect",
+      "valorDolar": 450,
+      "precoCusto": 2575.47,
+      "precoVenda": 3361.17
+    },
+    {
+      "anuncio": "Apple iPad 11TH Geração (A16) MD3Y4LL/A Silver 128GB Wi-Fi",
+      "loja": "Best Shop Paraguai",
       "valorDolar": 450,
       "precoCusto": 2575.47,
       "precoVenda": 3361.17
