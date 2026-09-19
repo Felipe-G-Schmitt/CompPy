@@ -1,5 +1,5 @@
 {
-  "atualizadoEm": "2026-09-19T16:17:38.758Z",
+  "atualizadoEm": "2026-09-19T17:29:55.465Z",
   "cotacaoDolar": 5.2934,
   "totalProdutos": 105,
   "produtos": [
@@ -102,14 +102,14 @@
       "precoVenda": 5118.75
     },
     {
-      "anuncio": "Apple iPhone 16 A3286 Nano + Esim 128GB/8GB Ram de 6.1\" 48 + 12MP/12MP - Black",
+      "anuncio": "Apple iPhone 16 A3286 JP Nano + Esim 128GB/8GB Ram de 6.1\" 48 + 12MP/12MP - White",
       "loja": "Mega Eletrônicos",
       "valorDolar": 790,
       "precoCusto": 4537.24,
       "precoVenda": 5217.82
     },
     {
-      "anuncio": "Apple iPhone 16 A3286 JP Nano + Esim 128GB/8GB Ram de 6.1\" 48 + 12MP/12MP - White",
+      "anuncio": "Apple iPhone 16 A3286 Nano + Esim 128GB/8GB Ram de 6.1\" 48 + 12MP/12MP - Black",
       "loja": "Mega Eletrônicos",
       "valorDolar": 790,
       "precoCusto": 4537.24,
@@ -333,13 +333,6 @@
       "precoVenda": 6227.46
     },
     {
-      "anuncio": "Apple iPhone 17 A3520 Nano + Esim 256GB/8GB Ram de 6.3\" 48+48MP/18MP - Black",
-      "loja": "Mega Eletrônicos",
-      "valorDolar": 950,
-      "precoCusto": 5456.17,
-      "precoVenda": 6256.17
-    },
-    {
       "anuncio": "Apple iPhone 17 A3520 Nano + Esim 256GB/8GB Ram de 6.3\" 48+48MP/18MP + Pelicula Privacy Unipha",
       "loja": "Mega Eletrônicos",
       "valorDolar": 950,
@@ -347,7 +340,21 @@
       "precoVenda": 6256.17
     },
     {
-      "anuncio": "Cel iPhone 17 6.3\" 8GB+256GB A3520 White+Pelicula Privacy Trans/Pret",
+      "anuncio": "Apple iPhone 17 A3520 Nano + Esim 256GB/8GB Ram de 6.3\" 48+48MP/18MP - White",
+      "loja": "Mega Eletrônicos",
+      "valorDolar": 950,
+      "precoCusto": 5456.17,
+      "precoVenda": 6256.17
+    },
+    {
+      "anuncio": "Apple iPhone 17 A3520 Nano + Esim 256GB/8GB Ram de 6.3\" 48+48MP/18MP - Black",
+      "loja": "Mega Eletrônicos",
+      "valorDolar": 950,
+      "precoCusto": 5456.17,
+      "precoVenda": 6256.17
+    },
+    {
+      "anuncio": "Apple iPhone 17 A3520 Nano + Esim 256GB/8GB Ram de 6.3\" 48+48MP/18MP + Pelicula Privacy Film",
       "loja": "Mega Eletrônicos",
       "valorDolar": 950,
       "precoCusto": 5456.17,
@@ -362,13 +369,6 @@
     },
     {
       "anuncio": "Apple iPhone 17 A3520 Nano + Esim 256GB/8GB Ram de 6.3\" 48+48MP/18MP - Lavender",
-      "loja": "Mega Eletrônicos",
-      "valorDolar": 950,
-      "precoCusto": 5456.17,
-      "precoVenda": 6256.17
-    },
-    {
-      "anuncio": "Apple iPhone 17 A3520 Nano + Esim 256GB/8GB Ram de 6.3\" 48+48MP/18MP - White",
       "loja": "Mega Eletrônicos",
       "valorDolar": 950,
       "precoCusto": 5456.17,
