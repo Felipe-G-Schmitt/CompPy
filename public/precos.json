@@ -1,5 +1,5 @@
 {
-  "atualizadoEm": "2026-09-26T13:29:38.946Z",
+  "atualizadoEm": "2026-09-27T16:57:01.570Z",
   "cotacaoDolar": 5.336600000000001,
   "totalProdutos": 127,
   "produtos": [
@@ -95,7 +95,21 @@
       "precoVenda": 5260.41
     },
     {
-      "anuncio": "Apple iPhone 16 A3286 JP Nano + Esim 128GB/8GB Ram de 6.1\" 48 + 12MP/12MP - White",
+      "anuncio": "Apple iPhone 16 A3287 Nano + Esim 128GB/8GB Ram de 6.1\" 48+12MP/12MP - White",
+      "loja": "Mega Eletrônicos",
+      "valorDolar": 790,
+      "precoCusto": 4574.27,
+      "precoVenda": 5260.41
+    },
+    {
+      "anuncio": "Apple iPhone 16 A3287 Nano + Esim 128GB/8GB Ram de 6.1\" 48+12MP/12MP - Pink (s Lacre)",
+      "loja": "Mega Eletrônicos",
+      "valorDolar": 790,
+      "precoCusto": 4574.27,
+      "precoVenda": 5260.41
+    },
+    {
+      "anuncio": "Apple iPhone 16 A3286 Nano + Esim 128GB/8GB Ram de 6.1\" 48 + 12MP/12MP - Pink",
       "loja": "Mega Eletrônicos",
       "valorDolar": 790,
       "precoCusto": 4574.27,
@@ -116,13 +130,6 @@
       "precoVenda": 5260.41
     },
     {
-      "anuncio": "Apple iPhone 16 A3287 Nano + Esim 128GB/8GB Ram de 6.1\" 48+12MP/12MP - White",
-      "loja": "Mega Eletrônicos",
-      "valorDolar": 790,
-      "precoCusto": 4574.27,
-      "precoVenda": 5260.41
-    },
-    {
       "anuncio": "Apple iPhone 16 A3287 Nano + Esim 128GB/8GB Ram de 6.1\" 48+12MP/12MP - Teal (s/Lacre)",
       "loja": "Mega Eletrônicos",
       "valorDolar": 790,
@@ -130,7 +137,7 @@
       "precoVenda": 5260.41
     },
     {
-      "anuncio": "Apple iPhone 16 A3286 Nano + Esim 128GB/8GB Ram de 6.1\" 48 + 12MP/12MP - Pink",
+      "anuncio": "Apple iPhone 16 A3286 JP Nano + Esim 128GB/8GB Ram de 6.1\" 48 + 12MP/12MP - White",
       "loja": "Mega Eletrônicos",
       "valorDolar": 790,
       "precoCusto": 4574.27,
@@ -166,6 +173,13 @@
     },
     {
       "anuncio": "Apple iPhone 16 A3287 Nano + Esim 128GB/8GB Ram de 6.1\" 48+12MP/12MP - White",
+      "loja": "Mega Eletro",
+      "valorDolar": 790,
+      "precoCusto": 4574.27,
+      "precoVenda": 5260.41
+    },
+    {
+      "anuncio": "Apple iPhone 16 A3287 Nano + Esim 128GB/8GB Ram de 6.1\" 48+12MP/12MP - Pink (s Lacre)",
       "loja": "Mega Eletro",
       "valorDolar": 790,
       "precoCusto": 4574.27,
@@ -312,14 +326,14 @@
       "precoVenda": 6271.75
     },
     {
-      "anuncio": "Apple iPhone 17 A3519 Esim 256GB/8GB Ram de 6.3\" 48+48MP/18MP - Sage",
+      "anuncio": "Apple iPhone 17 A3519 Esim 256GB/8GB Ram de 6.3\" 48+48MP/18MP - Mist Blue",
       "loja": "Mega Eletrônicos",
       "valorDolar": 945,
       "precoCusto": 5471.75,
       "precoVenda": 6271.75
     },
     {
-      "anuncio": "Apple iPhone 17 A3519 Esim 256GB/8GB Ram de 6.3\" 48+48MP/18MP - Mist Blue",
+      "anuncio": "Apple iPhone 17 A3519 Esim 256GB/8GB Ram de 6.3\" 48+48MP/18MP - Sage",
       "loja": "Mega Eletrônicos",
       "valorDolar": 945,
       "precoCusto": 5471.75,
@@ -361,7 +375,7 @@
       "precoVenda": 6300.7
     },
     {
-      "anuncio": "Apple iPhone 17 A3520 Nano + Esim 256GB/8GB Ram de 6.3\" 48+48MP/18MP - Black (Riscado) (s Lacre)",
+      "anuncio": "Apple iPhone 17 A3520 Nano + Esim 256GB/8GB Ram de 6.3\" 48+48MP/18MP - Black (Riscado) (s/Lacre)",
       "loja": "Mega Eletrônicos",
       "valorDolar": 950,
       "precoCusto": 5500.7,
@@ -375,7 +389,7 @@
       "precoVenda": 6300.7
     },
     {
-      "anuncio": "Apple iPhone 17 A3520 Nano + Esim 256GB/8GB Ram de 6.3\" 48+48MP/18MP - Black (Riscado) (s Lacre)",
+      "anuncio": "Apple iPhone 17 A3520 Nano + Esim 256GB/8GB Ram de 6.3\" 48+48MP/18MP - Black (Riscado) (s/Lacre)",
       "loja": "Mega Eletro",
       "valorDolar": 950,
       "precoCusto": 5500.7,
@@ -830,13 +844,6 @@
       "precoVenda": 3513.83
     },
     {
-      "anuncio": "Apple iPad 11TH Generation (A16) A3354 MD3Y4LL 128GB 11\" 12MP/12MP - Silver",
-      "loja": "Mega Eletrônicos",
-      "valorDolar": 465,
-      "precoCusto": 2692.45,
-      "precoVenda": 3513.83
-    },
-    {
       "anuncio": "Apple iPad A16 (2025) 11\" Wifi 128 GB MD3Y4LL/A - Prata",
       "loja": "Nissei",
       "valorDolar": 465,
@@ -846,13 +853,6 @@
     {
       "anuncio": "Apple iPad 11TH Geração (A16) MD3Y4LL/A Silver 128GB Wi-Fi",
       "loja": "Best Shop Paraguai",
-      "valorDolar": 465,
-      "precoCusto": 2692.45,
-      "precoVenda": 3513.83
-    },
-    {
-      "anuncio": "Apple iPad 11TH Generation (A16) A3354 MD3Y4LL 128GB 11\" 12MP/12MP - Silver",
-      "loja": "Mega Eletro",
       "valorDolar": 465,
       "precoCusto": 2692.45,
       "precoVenda": 3513.83
