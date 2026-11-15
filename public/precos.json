@@ -1,7 +1,7 @@
 {
-  "atualizadoEm": "2026-11-14T20:32:22.475Z",
+  "atualizadoEm": "2026-11-15T14:43:12.711Z",
   "cotacaoDolar": 5.8166,
-  "totalProdutos": 109,
+  "totalProdutos": 110,
   "produtos": [
     {
       "anuncio": "iPhone 15 128GB A3090 128GB Black HN",
@@ -95,7 +95,7 @@
       "precoVenda": 5798.87
     },
     {
-      "anuncio": "Apple iPhone 17 A3520 Nano + Esim 256GB/8GB Ram de 6.3\" 48+48MP/18MP - White",
+      "anuncio": "Apple iPhone 17 A3520 Nano + Esim 256GB/8GB Ram de 6.3\" 48+48MP/18MP - Black",
       "loja": "Mega Eletrônicos",
       "valorDolar": 912,
       "precoCusto": 5755.64,
@@ -109,14 +109,14 @@
       "precoVenda": 6555.64
     },
     {
-      "anuncio": "Apple iPhone 17 A3520 Nano + Esim 256GB/8GB Ram de 6.3\" 48+48MP/18MP - Black",
+      "anuncio": "Apple iPhone 17 A3521 Dual Sim 256GB/8GB Ram de 6.3\" 48+48MP/18MP - White",
       "loja": "Mega Eletrônicos",
       "valorDolar": 912,
       "precoCusto": 5755.64,
       "precoVenda": 6555.64
     },
     {
-      "anuncio": "Apple iPhone 17 A3521 Dual Sim 256GB/8GB Ram de 6.3\" 48+48MP/18MP - White",
+      "anuncio": "Apple iPhone 17 A3520 Nano + Esim 256GB/8GB Ram de 6.3\" 48+48MP/18MP - Mist Blue",
       "loja": "Mega Eletrônicos",
       "valorDolar": 912,
       "precoCusto": 5755.64,
@@ -130,7 +130,7 @@
       "precoVenda": 6555.64
     },
     {
-      "anuncio": "Apple iPhone 17 A3520 Nano + Esim 256GB/8GB Ram de 6.3\" 48+48MP/18MP - Mist Blue",
+      "anuncio": "Apple iPhone 17 A3520 Nano + Esim 256GB/8GB Ram de 6.3\" 48+48MP/18MP - White",
       "loja": "Mega Eletrônicos",
       "valorDolar": 912,
       "precoCusto": 5755.64,
@@ -264,6 +264,13 @@
     },
     {
       "anuncio": "Apple iPhone 17 A3258 Dual 256 GB - Mist Blue",
+      "loja": "Nissei",
+      "valorDolar": 959,
+      "precoCusto": 6052.26,
+      "precoVenda": 6852.26
+    },
+    {
+      "anuncio": "Apple iPhone 17 A3258 Dual 256 GB - Black",
       "loja": "Nissei",
       "valorDolar": 959,
       "precoCusto": 6052.26,
@@ -627,14 +634,14 @@
       "precoVenda": 3698.1
     },
     {
-      "anuncio": "Apple iPad 11TH Generation (A16) A3354 MD4A4LL 128GB 11\" 12MP/12MP - Blue",
+      "anuncio": "Apple iPad 11TH Generation (A16) A3354 MD4E4LL 128GB 11\" 12MP/12MP - Pink",
       "loja": "Mega Eletrônicos",
       "valorDolar": 449,
       "precoCusto": 2833.64,
       "precoVenda": 3698.1
     },
     {
-      "anuncio": "Apple iPad 11TH Generation (A16) A3354 MD4E4LL 128GB 11\" 12MP/12MP - Pink",
+      "anuncio": "Apple iPad 11TH Generation (A16) A3354 MD4A4LL 128GB 11\" 12MP/12MP - Blue",
       "loja": "Mega Eletrônicos",
       "valorDolar": 449,
       "precoCusto": 2833.64,
